@@ -1,4 +1,4 @@
-Package: actigraph
+Package: actigraphy
 Version: 0.1.1.0000
 Title: Feature Extraction from Minute Level Actigraphy Data
 Description: Extract features from minute level activity data. This package includes
