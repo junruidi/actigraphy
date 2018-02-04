@@ -1,5 +1,3 @@
-library(refund)
-library(dplyr)
 #' @title Functional Principal Component Analysis for Whole Day Circadian Rhythmicity
 #' @description A nonparametric approach to study variational stucture of whole day
 #' activity trajectory. This function provides the principal component loading functions and
@@ -12,7 +10,9 @@ library(dplyr)
 #' @param knots number of knots to use or the vectors of knots; defaults to 20.
 #' @param pve proportion of variation explained; defaults to 0.9.
 #'
-#' @return list of principal component loadings and principal component scores.
+#' @return Alist with elements
+#' \item{phi}{Principal component loadings, aka eigen functions}
+#' \item{pcs}{Principal component scores}
 #'
 #' @importFrom refund fpca.face
 #' @importFrom dplyr $>$ group_by summarise_all
