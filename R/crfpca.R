@@ -1,13 +1,13 @@
 library(refund)
 library(dplyr)
-
+#'
 crfpca = function(
   count.data,
   logtransform = FALSE,
   knots = 20,
   pve = 0.9
 ){
-  
+
   count.data$Day = NULL
 
   if(logtransform){
@@ -22,8 +22,8 @@ crfpca = function(
   phi = fpca.model$efunctions
   pcs = data.frame(ID = ID,fpca.model$scores)
   pcs$ID = as.character(pcs$ID)
-  
-  
+
+
   return(list(phi = phi, pcs = pcs))
-  
+
 }

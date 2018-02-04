@@ -7,12 +7,12 @@ ExtCos_long = function(
   long.count = long.count[
     with(long.count, order(ID, Day,MIN)),
     ]
-  
-  result= long.count  %>% group_by(ID) %>% do(out = ExtCos(.$values,logtransform = logtransform))c
-  
+
+  result= long.count  %>% group_by(ID) %>% do(out = ExtCos(.$values,logtransform = logtransform))
+
   idlist = result$ID
   result.list = result$out
-  
+
   vext= unlist(result.list)
   ext_all = as.data.frame(cbind(idlist,
                                 vext[seq(1,length(vext),5)],
