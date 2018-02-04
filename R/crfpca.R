@@ -1,5 +1,27 @@
 library(refund)
 library(dplyr)
+#' @title Functional Principal Component Analysis for Whole Day Circadian Rhythmicity
+#' @description A nonparametric approach to study variational stucture of whole day
+#' activity trajectory. This function provides the principal component loading functions and
+#' corresponding principal component scores. FPCA is done via the sandwich smoother for covriance matrix smoothing.=
+#'
+#'
+#' @param count.data \code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
+#' The first two columns have to be ID and Day.
+#' @param longtransform Conduct log transfomation before FPCA. Default is false.
+#' @param knots number of knots to use or the vectors of knots; defaults to 20.
+#' @param pve proportion of variation explained; defaults to 0.9.
+#'
+#' @return list of principal component loadings and principal component scores.
+#'
+#' @importFrom refund fpca.face
+#' @importFrom dplyr $>$ group_by summarise_all
+#'
+#'
+#' @examples
+#'
+#' res = crfpca(count.data = count, logtransform  = TRUE)
+#'
 #'
 crfpca = function(
   count.data,
