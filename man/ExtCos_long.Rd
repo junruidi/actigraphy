@@ -2,7 +2,7 @@
 % Please edit documentation in R/ExtCos_long.R
 \name{ExtCos_long}
 \alias{ExtCos_long}
-\title{Extended Cosinor Model for Circadian Rhythmicity for Whole Data set}
+\title{Extended Cosinor Model for Circadian Rhythmicity for Whole Dataset}
 \usage{
 ExtCos_long(count.data, longtrasform = TRUE)
 }
@@ -14,7 +14,7 @@ The first two columns have to be ID and Day.}
 }
 \value{
 A \code{data.frame} with following columns
-\item{ID}{Subject ID}
+\item{ID}{identifier of the person}
 \item{min}{minimum}
 \item{amp}{amplitude}
 \item{alpha}{alpha parameter}

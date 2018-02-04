@@ -1,4 +1,4 @@
-#' @title Extended Cosinor Model for Circadian Rhythmicity for Whole Data set
+#' @title Extended Cosinor Model for Circadian Rhythmicity for Whole Dataset
 #' @description A parametric approach to study circadian rhythmicity assuming cosinor shape.
 #' Here we used the anti logistic transformed cosine curves, which provided 5 parameters.
 #' This function is a wrapper for \code{ExtCos}.
@@ -8,7 +8,7 @@
 #' @param longtransform Conduct log transfomation before. Default is \code{TRUE}.
 #'
 #' @return A \code{data.frame} with following columns
-#' \item{ID}{Subject ID}
+#' \item{ID}{identifier of the person}
 #' \item{min}{minimum}
 #' \item{amp}{amplitude}
 #' \item{alpha}{alpha parameter}

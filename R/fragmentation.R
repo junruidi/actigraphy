@@ -1,9 +1,3 @@
-library(accelerometry)
-library(dplyr)
-library(ineq)
-library(survival)
-
-
 #' @title Fragmentation Metrics
 #' @description Fragmentation methods to study the transition between two states, e.g.
 #' sedentary v.s. active.
@@ -26,17 +20,23 @@ library(survival)
 #' \item{h_a}{hazard function for active bout}
 #' \item{alpha_r}{power law parameter for sedentary bout}
 #' \item{alpha_a}{power law parameter for active bout}
+#'
+#'
+#'
 #' @importFrom accelerometry accel.bouts rle2
 #' @importFrom stats na.omit
-#' @importFrom dplyr data_frame filter %>% group_by
+#' @importFrom dplyr data_frame as_data_frame filter %>% group_by
 #' @importFrom dplyr summarize select as_data_frame
+#' @importFrom survival survfit Surv
+#' @importFrom ineq Gini
+#'
 #'
 #' @details Metrics include
-#' \item{mean_bout}{mean bout duration}
-#' \item{TP}{between states transition probability}
-#' \item{Gini}{gini index}
-#' \item{power}{alapha parameter for power law distribution}
-#' \item{hazard}{average hazard function}
+#' mean_bout (mean bout duration),
+#' TP (between states transition probability),
+#' Gini (gini index),
+#' power (alapha parameter for power law distribution)
+#' hazard (average hazard function)
 #'
 #'
 #' @examples
