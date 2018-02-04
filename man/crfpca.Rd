@@ -17,7 +17,9 @@ The first two columns have to be ID and Day.}
 \item{longtransform}{Conduct log transfomation before FPCA. Default is false.}
 }
 \value{
-list of principal component loadings and principal component scores.
+Alist with elements
+\item{phi}{Principal component loadings, aka eigen functions}
+\item{pcs}{Principal component scores}
 }
 \description{
 A nonparametric approach to study variational stucture of whole day

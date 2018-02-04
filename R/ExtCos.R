@@ -21,16 +21,7 @@
 #'
 #'
 
-fn.res1 <- function(par, tmp.dat) {
-  tmp.dat[, 2] - (par[1] + par[2] * cos((tmp.dat[, 1] - par[3]) * 2 * pi / 24))
-}
 
-fn.res2 <- function(par, tmp.dat) {
-  ct <- cos((tmp.dat[, 1] - par[5]) * 2 * pi / 24)
-  lct <- exp(par[4] * (ct - par[3])) / (1 + exp(par[4] * (ct - par[3])))
-  rt <- par[1] + par[2] * lct
-  tmp.dat[, 2] - rt
-}
 
 ExtCos <- function(
   x,
@@ -58,4 +49,15 @@ ExtCos <- function(
                 alpha = cosinor.stat[3],
                 beta = cosinor.stat[4],
                 acro = cosinor.stat[5]))
+}
+
+fn.res1 <- function(par, tmp.dat) {
+  tmp.dat[, 2] - (par[1] + par[2] * cos((tmp.dat[, 1] - par[3]) * 2 * pi / 24))
+}
+
+fn.res2 <- function(par, tmp.dat) {
+  ct <- cos((tmp.dat[, 1] - par[5]) * 2 * pi / 24)
+  lct <- exp(par[4] * (ct - par[3])) / (1 + exp(par[4] * (ct - par[3])))
+  rt <- par[1] + par[2] * lct
+  tmp.dat[, 2] - rt
 }
