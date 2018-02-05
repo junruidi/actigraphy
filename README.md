@@ -7,6 +7,6 @@
 
 You can install `actigraphy` from Github with:
 ```{r}
-#install.package("remotes")
-remotes::install_github("junruidi/actigraphy")
+#install.package("devtools")
+devtools::install_github("junruidi/actigraphy")
 ```
