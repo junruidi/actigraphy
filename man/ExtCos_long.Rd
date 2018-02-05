@@ -4,7 +4,7 @@
 \alias{ExtCos_long}
 \title{Extended Cosinor Model for Circadian Rhythmicity for Whole Dataset}
 \usage{
-ExtCos_long(count.data, longtrasform = TRUE)
+ExtCos_long(count.data, logtransform = TRUE)
 }
 \arguments{
 \item{count.data}{\code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.

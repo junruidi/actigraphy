@@ -13,8 +13,7 @@
 #' \item{beta}{beta parameter}
 #' \item{acro}{acrophase}
 #'
-#' @importFrom minpack.lm nls.lm
-#'
+#' @export
 #' @examples
 #' coutn.day = rpois(1440*5, lambda = 5)
 #' extcos = ExtCos(x = coutn.day, logtransform  = TRUE)

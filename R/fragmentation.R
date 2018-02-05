@@ -22,14 +22,7 @@
 #' \item{alpha_a}{power law parameter for active bout}
 #'
 #'
-#'
-#' @importFrom accelerometry accel.bouts rle2
-#' @importFrom stats na.omit
-#' @importFrom dplyr data_frame as_data_frame filter %>% group_by
-#' @importFrom dplyr summarize select as_data_frame
-#' @importFrom survival survfit Surv
-#' @importFrom ineq Gini
-#'
+#' @export
 #'
 #' @details Metrics include
 #' mean_bout (mean bout duration),

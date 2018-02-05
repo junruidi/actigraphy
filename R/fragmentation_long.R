@@ -31,16 +31,7 @@
 #' \item{alpha_r}{power law parameter for sedentary bout}
 #' \item{alpha_a}{power law parameter for active bout}
 #'
-#'
-#'
-#' @importFrom accelerometry accel.bouts rle2
-#' @importFrom stats na.omit reshape
-#' @importFrom dplyr data_frame as_data_frame filter %>% group_by
-#' @importFrom dplyr summarize select as_data_frame
-#' @importFrom survival survfit Surv
-#' @importFrom ineq Gini
-#'
-#'
+#' @export
 #' @details Metrics include
 #' mean_bout (mean bout duration),
 #' TP (between states transition probability),
@@ -52,9 +43,9 @@
 #' @examples
 #' data(example_activity_data)
 #' count = example_activity_data$count
-#' wear = example_activity_data$wear[1,-c(1,2)]
-#' frag = fragmentation_long(count.data = count, weartime= wear, thresh = 100, bout.length = 1, metrics = "mean_bout",
-#' by = "day" )
+#' wear = example_activity_data$wear
+#' frag_by_subject = fragmentation_long(count.data = count,weartime = wear,thresh = 100,bout.length = 1,metrics = "all",by = "subject")
+#' frag_by_day = fragmentation_long(count.data = count,weartime = wear,thresh = 100,bout.length = 1,metrics = "all",by = "day")
 #'
 #'
 
@@ -70,7 +61,7 @@ fragmentation_long = function(
   by = c("day","subject")
 ){
   metrics = match.arg(metrics)
-  by = match.arg(metrics)
+  by = match.arg(by)
 
 
   if(missing(weartime)){

@@ -15,8 +15,7 @@
 #' \item{beta}{beta parameter}
 #' \item{acro}{acrophase}
 #'
-#' @importFrom minpack.lm nls.lm
-#'
+#' @export
 #' @examples
 #' data(example_activity_data)
 #' count.data = example_activity_data$count
@@ -27,7 +26,7 @@
 
 ExtCos_long = function(
   count.data,
-  longtrasform = TRUE
+  logtransform = TRUE
 ){
   long.count = reshape(count.data, varying = names(count.data)[3:1442],direction = "long",
                        timevar = "MIN",idvar = c("ID","Day"),v.names = "values")

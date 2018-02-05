@@ -14,10 +14,7 @@
 #' \item{phi}{Principal component loadings, aka eigen functions}
 #' \item{pcs}{Principal component scores}
 #'
-#' @importFrom refund fpca.face
-#' @importFrom dplyr $>$ group_by summarise_all
-#'
-#'
+#' @export
 #' @examples
 #'
 #' res = crfpca(count.data = count, logtransform  = TRUE)

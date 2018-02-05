@@ -22,11 +22,22 @@ Imports:
     minpack.lm,
     ineq,
     survival,
+    qdap,
     stats,
     tidyr,
     rlang
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10),
+    accelerometry,
+    refund,
+    dplyr,
+    minpack.lm,
+    ineq,
+    qdap,
+    survival,
+    stats,
+    tidyr,
+    rlang
 Suggests: 
     knitr,
     rmarkdown,
