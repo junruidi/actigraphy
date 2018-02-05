@@ -7,6 +7,6 @@
 
 You can install `actigraphy` from Github with:
 ```{r}
-#install.package("remote")
+#install.package("remotes")
 remotes::install_github("junruidi/actigraphy")
 ```
