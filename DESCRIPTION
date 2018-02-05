@@ -22,7 +22,6 @@ Imports:
     minpack.lm,
     ineq,
     survival,
-    qdap,
     stats,
     tidyr,
     rlang
@@ -33,7 +32,6 @@ Depends:
     dplyr,
     minpack.lm,
     ineq,
-    qdap,
     survival,
     stats,
     tidyr,

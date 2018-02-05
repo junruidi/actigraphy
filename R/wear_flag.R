@@ -37,8 +37,9 @@ wear_flag = function(
   }
   count.mat = as.matrix(count.data[,-c(1:2)])
   wear.mat = matrix(0,nrow = nrow(count.mat),ncol = ncol(count.mat))
-  start.i = as.numeric(beg2char(start,":")) * 60 + as.numeric(char2end(start,":")) + 1
-  end.i = as.numeric(beg2char(end,":")) * 60 + as.numeric(char2end(end,":")) + 1
+
+  start.i = as.numeric(gsub(":.[0-9]",replacement = "",start)) * 60 + as.numeric(gsub("[0-9].:",replacement = "",start)) + 1
+  end.i = as.numeric(gsub(":.[0-9]",replacement = "",end)) * 60 + as.numeric(gsub("[0-9].:",replacement = "",end)) + 1
 
   wear.mat[,c(start.i:end.i)] = 1
   weartime = as.data.frame(cbind(count.data[,c(1,2)],wear.mat))
