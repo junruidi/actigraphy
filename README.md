@@ -10,3 +10,4 @@ You can install `actigraphy` from Github with:
 #install.package("devtools")
 devtools::install_github("junruidi/actigraphy")
 ```
+[![Build Status](https://travis-ci.org/user/pkg.svg?branch=master)](https://travis-ci.org/junruidi/actigraphy)
