@@ -75,5 +75,16 @@ In this version, we focus on the physical activity and circadian rhythmicity dom
 
 Sleep features (which may rely on addtional algorithms) will be implemented in the future. 
 
+### 2.1 total volume of physical activity
+
+### 2.2 time related features
+
+### 2.3 fragmentation metrics
+
+### 2.4 extended cosinor model
+
+### 2.5 intradaily variability
+
+### 2.6 functional principal component analysis
 
 
