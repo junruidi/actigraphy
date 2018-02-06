@@ -11,7 +11,7 @@
 #' @param pve proportion of variation explained; defaults to 0.9.
 #'
 #' @importFrom refund fpca.face
-#' @importFrom dplyr group_by summarise_all %>%
+#' @importFrom dplyr group_by summarise_all %>% funs
 
 #' @return Alist with elements
 #' \item{phi}{Principal component loadings, aka eigen functions}
