@@ -14,7 +14,7 @@ Authors@R: c(
         role = c("aut"), email = "vzipunni@jhsph.edu ")        
       )
 Maintainer: Junrui Di <jdi2@jhu.edu>
-License: GPL-3
+License: MIT + file LICENSE
 Imports:
     accelerometry,
     refund,
@@ -24,9 +24,9 @@ Imports:
     survival,
     stats,
     tidyr
-Depends: 
+Depends:
     R (>= 2.10),
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
     covr,
