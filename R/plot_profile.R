@@ -42,6 +42,7 @@ plot_profile = function(
   lab = c("00:00","03:00","06:00", "09:00","12:00","15:00","18:00","21:00","00:00")
 
   par(mar=c(4, 5, 2, 1))
+  par(oma=c(2,2,2,2))
   plot(x, type = "h",  col = "deepskyblue3", main = title,
        yaxt = "n", xaxt = "n", xlab = "", ylab = "AC",
        cex.main = cex.main, cex.sub = cex.sub, axes = F,cex.lab = cex.lab)
