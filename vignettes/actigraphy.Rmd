@@ -46,7 +46,7 @@ In this version, we focus on the physical activity and circadian rhythmicity dom
 * Physical activity
     * total volume: `Tvol`
     * time related features, e.g. sedentary time, MVAP: `Time`, `Time_long`
-    * fragmentation metrics: `fragmentation`, `fragmentation`
+    * fragmentation metrics: `fragmentation`, `fragmentation_long`
 * Circadian rhythmicity
     * functional PCA: `crfpca`
     * extended cosinor model with anti logistic transformed cosine curves: `ExtCos`, `ExtCos_long`
