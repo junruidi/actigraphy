@@ -50,7 +50,7 @@ weartime = wear_flag(count.data = count, start = "06:00", end = "23:00")
 
 In this version, we only incorporate type 3 . For 1 and 2 there are more appropriate softwares to look for.
 
-We also provide the `plot_profile` as a visual inspection tool to visualize daily activity profile. Most the plot controling arguments are simlar to the plot based function `plot`, with backgroun indicating wear/nonwear flag (is supplied).
+We also provide the `plot_profile` as a visual inspection tool to visualize daily activity profile with background indicating wear/nonwear flag (is supplied). Most the plot controling arguments are simlar to the R base `plot`, 
 
 ```{r,fig.height = 4, fig.width = 8}
 data(example_activity_data)

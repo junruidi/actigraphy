@@ -15,4 +15,4 @@ You can install `actigraphy` from Github with:
 devtools::install_github("junruidi/actigraphy")
 ```
 
-Detail description of usage can be seen [here](http://rpubs.com/dijunrui/actigraphy)
+Detail description of usage can be seen [here](http://rpubs.com/dijunrui/actigraphy).
