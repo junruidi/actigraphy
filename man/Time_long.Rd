@@ -33,7 +33,8 @@ sedentary v.s. active.This function is a whole dataset wrapper for \code{fragmen
 data(example_activity_data)
 count = example_activity_data$count
 wear = example_activity_data$wear
-sed_all = Time_long(count.data = count,weartime = wear,thresh = 100,bout.length = 1,smallerthan = TRUE)
+sed_all = Time_long(count.data = count,weartime = wear,
+thresh = 100,bout.length = 1,smallerthan = TRUE)
 
 
 }

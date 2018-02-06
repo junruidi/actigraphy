@@ -10,7 +10,7 @@ ExtCos_long(count.data, logtransform = TRUE)
 \item{count.data}{\code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
 The first two columns have to be ID and Day.}
 
-\item{longtransform}{Conduct log transfomation before. Default is \code{TRUE}.}
+\item{logtransform}{Conduct log transfomation before. Default is \code{TRUE}.}
 }
 \value{
 A \code{data.frame} with following columns

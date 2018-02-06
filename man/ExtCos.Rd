@@ -9,7 +9,7 @@ ExtCos(x, logtransform = TRUE)
 \arguments{
 \item{x}{\code{vector} vector of dimension n*1440 which reprsents n days of 1440 minute activity data}
 
-\item{longtransform}{Conduct log transfomation before. Default is \code{TRUE}.}
+\item{logtransform}{Conduct log transfomation before. Default is \code{TRUE}.}
 }
 \value{
 A list with elements

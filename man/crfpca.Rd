@@ -10,11 +10,11 @@ crfpca(count.data, logtransform = FALSE, knots = 20, pve = 0.9)
 \item{count.data}{\code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
 The first two columns have to be ID and Day.}
 
+\item{logtransform}{Conduct log transfomation before FPCA. Default is false.}
+
 \item{knots}{number of knots to use or the vectors of knots; defaults to 20.}
 
 \item{pve}{proportion of variation explained; defaults to 0.9.}
-
-\item{longtransform}{Conduct log transfomation before FPCA. Default is false.}
 }
 \value{
 Alist with elements

@@ -26,14 +26,6 @@ Imports:
     tidyr
 Depends: 
     R (>= 2.10),
-    accelerometry,
-    refund,
-    dplyr,
-    minpack.lm,
-    ineq,
-    survival,
-    stats,
-    tidyr
 Suggests: 
     knitr,
     rmarkdown,
