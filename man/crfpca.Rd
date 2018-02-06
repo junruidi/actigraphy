@@ -28,7 +28,8 @@ corresponding principal component scores. FPCA is done via the sandwich smoother
 }
 \examples{
 
-res = crfpca(count.data = count, logtransform  = TRUE)
+#not run
+#res = crfpca(count.data = count, logtransform  = TRUE)
 
 
 }
