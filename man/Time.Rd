@@ -27,7 +27,8 @@ Calculate the total time of being in certain state, e.g. sedentary, active, MVPA
 data(example_activity_data)
 count1 = c(t(example_activity_data$count[1,-c(1,2)]))
 wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
-time_sedentary = Time(x = count1, w = wear1, thresh = 100, bout.length = 1, smallerthan = T)
+time_sedentary = Time(x = count1, w = wear1, thresh = 100,
+bout.length = 1, smallerthan = TRUE)
 
 
 }
