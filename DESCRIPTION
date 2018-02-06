@@ -14,7 +14,7 @@ Authors@R: c(
         role = c("aut"), email = "vzipunni@jhsph.edu ")        
       )
 Maintainer: Junrui Di <jdi2@jhu.edu>
-License: MIT + file LICENSE
+License: GPL-3 + file LICENSE
 Imports:
     accelerometry,
     refund,
