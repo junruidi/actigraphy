@@ -15,6 +15,11 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+```{r, echo=FALSE}
+library(actigraphy)
+```
+
 This is the vignette for "actigraphy" package. This package extract multiple commonly used features from minute level actigraphy data. 
 
 ## 1. Data type
@@ -39,6 +44,16 @@ weartime = wear_flag(count.data = count, start = "06:00", end = "23:00")
 
 In this version, we only incorporate type 3 . For 1 and 2 there are more appropriate softwares to look for.
 
+We also provide the `plot_profile` as a visual inspection tool to visualize daily activity profile. Most the plot controling arguments are simlar to the plot based function `plot`, with backgroun indicating wear/nonwear flag (is supplied).
+
+```{r,fig.height = 4, fig.width = 8}
+data(example_activity_data)
+count1 = c(t(example_activity_data$count[1,-c(1,2)]))
+wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
+id = example_activity_data$count$ID[1]
+day= example_activity_data$count$Day[1]
+plot_profile(x=count1, w=wear1, title = paste0("ID ",id, ", Day  ", day),cex.main = 1.3,cex.lab = 1.2, cex.xaxis = 1,cex.yaxis = 1 )
+```
 
 ## 2. Feature Extractions
 In this version, we focus on the physical activity and circadian rhythmicity domain. We have the funcions to calcualte the following features
