@@ -40,7 +40,7 @@ weartime = wear_flag(count.data = count, start = "06:00", end = "23:00")
 In this version, we only incorporate type 3 . For 1 and 2 there are more appropriate softwares to look for.
 
 
-##2. Feature Extractions
+## 2. Feature Extractions
 In this version, we focus on the physical activity and circadian rhythmicity domain. We have the funcions to calcualte the following features
 
 * Physical activity
