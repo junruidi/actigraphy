@@ -8,7 +8,9 @@
 #' @param cex.main size of title
 #' @param cex.sub size of subtitle
 #' @param cex.lab size of x and y lable
-#' @param at.y where to put y axis annotation
+#' @param at.x how many hours away between two x axis annotation ticks,
+#'  has to be \code{integer}; defualts to be 3.
+#' @param at.y where to put y axis annotation (ticks)
 #' @param cex.xaxis size of x axis annotation
 #' @param cex.yaxis size of y axis annotation
 #' @param mar defaults to c(4, 4, 2, 1)
@@ -36,14 +38,20 @@ plot_profile = function(
   cex.main = 1,
   cex.sub = 2,
   cex.lab = 1,
+  at.x = 3,
   at.y = NULL,
   cex.xaxis = 1,
   cex.yaxis = 1,
   oma = c(1,1,1,1),
   mar = c(4, 4, 2, 1)
 ){
-  breaks = c(1,181,361,541,721,901,1081,1261,1440)
-  lab = c("00:00","03:00","06:00", "09:00","12:00","15:00","18:00","21:00","00:00")
+
+  breaks = seq(1,1441, at.x * 60)
+  l = (seq(1,1441, at.x * 60) - 1)/60
+  l[which(l == 24)] = 0
+  l = as.character(l)
+  l[nchar(l) == 1] = paste0("0",l[nchar(l) == 1])
+  lab = paste0(l,":00")
 
   par(mar = mar)
   par(oma = oma)
