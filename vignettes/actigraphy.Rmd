@@ -1,7 +1,7 @@
 ---
 title: "actigraphy"
 author: "Junrui Di"
-date: "`r Sys.Date()`"
+date: "02/05/2018"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
@@ -9,13 +9,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
-actigraphy aims to extract features from minute level actigraphy data.
 
-##1. Data format
+This is the vignette for "actigraphy" package. This package extract multiple commonly used features from minute level actigraphy data. 
+
+## 1. Data type
+
+The expected data should consider at least one data frame of minute level activity counts, stored in a format of \code{data.frame} of dimension $(\sum_i d_i) \times 1442$, where $d_i$ is the number of available days for subject i.And the order of the 1442 columns (and corresponding column names) should be "ID","Day","MIN1",..."MIN1440".
+
+
