@@ -8,6 +8,7 @@
 #' @param smallerthan Find a state that is smaller than a threshold, or greater than or equal to.
 #'
 #' @return Time
+#' @importFrom accelerometry accel.bouts
 #'
 #' @export
 #'

@@ -11,6 +11,7 @@
 #' @param bout.length minimum duration of defining an active bout; defaults to 1.
 #' @param smallerthan Find a state that is smaller than a threshold, or greater than or equal to.
 #'
+#' @importFrom accelerometry accel.bouts
 #'
 #' @return A dataframe with some of the following columns
 #' \item{ID}{identifier of the person}
@@ -23,7 +24,8 @@
 #' data(example_activity_data)
 #' count = example_activity_data$count
 #' wear = example_activity_data$wear
-#' sed_all = Time_long(count.data = count,weartime = wear,thresh = 100,bout.length = 1,smallerthan = TRUE)
+#' sed_all = Time_long(count.data = count,weartime = wear,
+#' thresh = 100,bout.length = 1,smallerthan = TRUE)
 #'
 #'
 

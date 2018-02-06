@@ -4,7 +4,10 @@
 #'
 #'
 #' @param x \code{vector} vector of dimension n*1440 which reprsents n days of 1440 minute activity data
-#' @param longtransform Conduct log transfomation before. Default is \code{TRUE}.
+#' @param logtransform Conduct log transfomation before. Default is \code{TRUE}.
+#'
+#' @importFrom minpack.lm nls.lm nls.lm.control
+#' @importFrom stats coef
 #'
 #' @return A list with elements
 #' \item{min}{minimum}

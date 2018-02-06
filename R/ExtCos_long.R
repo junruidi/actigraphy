@@ -5,7 +5,11 @@
 #'
 #' @param count.data \code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
 #' The first two columns have to be ID and Day.
-#' @param longtransform Conduct log transfomation before. Default is \code{TRUE}.
+#' @param logtransform Conduct log transfomation before. Default is \code{TRUE}.
+#'
+#' @importFrom minpack.lm nls.lm nls.lm.control
+#' @importFrom stats coef reshape
+#' @importFrom dplyr group_by %>% do
 #'
 #' @return A \code{data.frame} with following columns
 #' \item{ID}{identifier of the person}

@@ -6,10 +6,13 @@
 #'
 #' @param count.data \code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
 #' The first two columns have to be ID and Day.
-#' @param longtransform Conduct log transfomation before FPCA. Default is false.
+#' @param logtransform Conduct log transfomation before FPCA. Default is false.
 #' @param knots number of knots to use or the vectors of knots; defaults to 20.
 #' @param pve proportion of variation explained; defaults to 0.9.
 #'
+#' @importFrom refund fpca.face
+#' @importFrom dplyr group_by summarise_all %>%
+
 #' @return Alist with elements
 #' \item{phi}{Principal component loadings, aka eigen functions}
 #' \item{pcs}{Principal component scores}
