@@ -11,3 +11,4 @@ You can install `actigraphy` from Github with:
 devtools::install_github("junruidi/actigraphy")
 ```
 [![Build Status](https://travis-ci.org/junruidi/actigraphy.svg?branch=master)](https://travis-ci.org/junruidi/actigraphy)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/junruidi/actigraphy?branch=master&svg=true)](https://ci.appveyor.com/project/junruidi/actigraphy)
