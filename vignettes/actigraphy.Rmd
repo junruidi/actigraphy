@@ -59,7 +59,7 @@ count1 = c(t(example_activity_data$count[1,-c(1,2)]))
 wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
 id = example_activity_data$count$ID[1]
 day= example_activity_data$count$Day[1]
-plot_profile(x=count1, w=wear1, title = paste0("ID ",id, ", Day  ", day),cex.main = 1.3,cex.lab = 1.2, cex.xaxis = 1,cex.yaxis = 1,at.x = 3)
+plot_profile(x=count1, w=wear1, title = paste0("ID ",id, ", Day  ", day),cex.main = 1.3,cex.lab = 1.2, cex.xaxis = 1,cex.yaxis = 1,hr = 2)
 ```
 
 ## 2. Feature Extractions
