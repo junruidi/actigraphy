@@ -5,7 +5,8 @@
 \title{Plot Daily Activity Profile}
 \usage{
 plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
-  at.y = NULL, cex.xaxis = 1.5, cex.yaxis = 1.5)
+  at.y = NULL, cex.xaxis = 1.5, cex.yaxis = 1.5, oma = c(1, 1, 1, 1),
+  mar = c(4, 4, 2, 1))
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}
@@ -25,6 +26,10 @@ plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
 \item{cex.xaxis}{size of x axis annotation}
 
 \item{cex.yaxis}{size of y axis annotation}
+
+\item{oma}{defaults to c(1,1,1,1)}
+
+\item{mar}{defaults to c(4, 4, 2, 1)}
 }
 \description{
 Given a activity vector (and a wear/nonwear flag vector), plot the

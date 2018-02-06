@@ -11,6 +11,8 @@
 #' @param at.y where to put y axis annotation
 #' @param cex.xaxis size of x axis annotation
 #' @param cex.yaxis size of y axis annotation
+#' @param mar defaults to c(4, 4, 2, 1)
+#' @param oma defaults to c(1,1,1,1)
 #'
 #' @importFrom grDevices rgb
 #' @importFrom graphics abline axis par plot
@@ -36,13 +38,15 @@ plot_profile = function(
   cex.lab = 1,
   at.y = NULL,
   cex.xaxis = 1.5,
-  cex.yaxis = 1.5
+  cex.yaxis = 1.5,
+  oma = c(1,1,1,1),
+  mar = c(4, 4, 2, 1)
 ){
   breaks = c(1,181,361,541,721,901,1081,1261,1440)
   lab = c("00:00","03:00","06:00", "09:00","12:00","15:00","18:00","21:00","00:00")
 
-  par(mar=c(4, 5, 2, 1))
-  par(oma=c(2,2,2,2))
+  par(mar = mar)
+  par(oma = oma)
   plot(x, type = "h",  col = "deepskyblue3", main = title,
        yaxt = "n", xaxt = "n", xlab = "", ylab = "AC",
        cex.main = cex.main, cex.sub = cex.sub, axes = F,cex.lab = cex.lab)
