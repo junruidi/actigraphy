@@ -5,8 +5,8 @@
 \title{Plot Daily Activity Profile}
 \usage{
 plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
-  at.x = 3, at.y = NULL, cex.xaxis = 1, cex.yaxis = 1, oma = c(1, 1,
-  1, 1), mar = c(4, 4, 2, 1))
+  hr = 3, at.y = NULL, cex.xaxis = 1, cex.yaxis = 1, oma = c(1, 1, 1,
+  1), mar = c(4, 4, 2, 1))
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}
@@ -21,7 +21,7 @@ plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
 
 \item{cex.lab}{size of x and y lable}
 
-\item{at.x}{how many hours away between two x axis annotation ticks,
+\item{hr}{how many hours away between two x axis annotation ticks,
 has to be \code{integer}; defualts to be 3.}
 
 \item{at.y}{where to put y axis annotation (ticks)}
