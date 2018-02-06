@@ -51,5 +51,8 @@ In this version, we focus on the physical activity and circadian rhythmicity dom
     * functional PCA: `crfpca`
     * extended cosinor model with anti logistic transformed cosine curves: `ExtCos`, `ExtCos_long`
     * Intradaily variability: `IV`, `IV_long`
-  
+
+Sleep features, which may need other algorithms will be implemented in the future. 
+
+
 
