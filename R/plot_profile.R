@@ -12,7 +12,7 @@
 #' @param cex.xaxis size of x axis annotation
 #' @param cex.yaxis size of y axis annotation
 #' @param mar defaults to c(4, 4, 2, 1)
-#' @param oma defaults to c(1,1,1,1)
+#' @param oma defaults to c(1, 1, 1, 1)
 #'
 #' @importFrom grDevices rgb
 #' @importFrom graphics abline axis par plot
@@ -37,8 +37,8 @@ plot_profile = function(
   cex.sub = 2,
   cex.lab = 1,
   at.y = NULL,
-  cex.xaxis = 1.5,
-  cex.yaxis = 1.5,
+  cex.xaxis = 1,
+  cex.yaxis = 1,
   oma = c(1,1,1,1),
   mar = c(4, 4, 2, 1)
 ){
