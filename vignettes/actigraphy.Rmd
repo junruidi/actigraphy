@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 This is the vignette for "actigraphy" package. This package extract multiple commonly used features from minute level actigraphy data. 
 
 To download the package from Github
-```{r, eval=FALSE}
+```{r}
 devtools::install_github("junruidi/actigraphy")
 ```
 
