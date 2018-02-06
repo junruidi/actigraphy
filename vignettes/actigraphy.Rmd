@@ -1,7 +1,7 @@
 ---
 title: "actigraphy"
 author: "Junrui Di"
-date: "02/05/2018"
+date: "2/9/2018"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
@@ -9,12 +9,47 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 This is the vignette for "actigraphy" package. This package extract multiple commonly used features from minute level actigraphy data. 
 
 ## 1. Data type
 
 The expected data should consider at least one data frame of minute level activity counts, stored in a format of `data.frame` of dimension $(\sum_i d_i) \times 1442$, where $d_i$ is the number of available days for subject i.And the order of the 1442 columns (and corresponding column names) should be "ID","Day","MIN1",..."MIN1440".
 
+It is preferrable that user can also provide a `data.frame` of wear/non-wear flag as same dimension of the activity counts. This flag data can serve as the following purposes:
+
+ 1. Define time regions where the subjects were wearing the devices. E.g. in NHANES 2003 - 2006, protocol required subjects to remove the devices when sleep. Certian non-wear detection algorithms can be used  (see package [`nahnesdata`](https://github.com/andrew-leroux/nhanesdata) ).
+ 2. Separate sleep and wake period to derive domain specific features. E.g. when actigraphy record is paired with a sleep log, or when the device has built in sleep detecting algorithms. 
+ 3. Define regions where features should be calcualted. E.g, we want features to be calculated only for 5:00AM to 11:00PM.
+ 
+ Thbe wear/nonwear flag data should only consist of entries 0/1 representing nonwear/wear, sleep/wake, regions of interest/regions of interests, respectively. This is especially crucial for calculating features like total sedentary time, fragmentation etc. Because, we are not supposed to mix sedentary with sleep. 
+ 
+ If no wear/nonwear flag data is supplied, users can create one using the `wear_flag` function providing the time region:
+
+```{r, eval=FALSE}
+data(example_activity_data)
+count = example_activity_data$count
+weartime = wear_flag(count.data = count, start = "06:00", end = "23:00")
+```
+
+In this version, we only incorporate type 3 . For 1 and 2 there are more appropriate softwares to look for.
+
+
+##2. Feature Extractions
+In this version, we focus on the physical activity and circadian rhythmicity domain. We have the funcions to calcualte the following features
+
+* Physical activity
+    * total volume: `Tvol`
+    * time related features, e.g. sedentary time, MVAP: `Time`, `Time_long`
+    * fragmentation metrics: `fragmentation`, `fragmentation`
+* Circadian rhythmicity
+    * functional PCA: `crfpca`
+    * extended cosinor model with anti logistic transformed cosine curves: `ExtCos`, `ExtCos_long`
+    * Intradaily variability: `IV`, `IV_long`
+  
 
