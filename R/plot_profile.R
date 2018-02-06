@@ -11,21 +11,9 @@
 #' @param at.y where to put y axis annotation
 #' @param cex.xaxis size of x axis annotation
 #' @param cex.yaxis size of y axis annotation
-#' @param metrics What is the fragmentation metrics to exract. Can be
-#' "mean_bout","TP","Gini","power","hazard",or all the above metrics "all".
 #'
-#' @return A list with elements
-#' \item{mean_r}{mean sedentary bout duration}
-#' \item{mean_a}{mean active bout duration}
-#' \item{SATP}{sedentary to active transition probability}
-#' \item{ASTP}{bactive to sedentary transition probability}
-#' \item{Gini_r}{Gini index for active bout}
-#' \item{Gini_a}{Gini index for sedentary bout}
-#' \item{h_r}{hazard function for sedentary bout}
-#' \item{h_a}{hazard function for active bout}
-#' \item{alpha_r}{power law parameter for sedentary bout}
-#' \item{alpha_a}{power law parameter for active bout}
-#'
+#' @importFrom grDevices rgb
+#' @importFrom graphics abline axis par plot
 #' @export
 #'
 #'
@@ -52,7 +40,6 @@ plot_profile = function(
 ){
   breaks = c(1,181,361,541,721,901,1081,1261,1440)
   lab = c("00:00","03:00","06:00", "09:00","12:00","15:00","18:00","21:00","00:00")
-
 
   par(mar=c(4, 5, 2, 1))
   plot(x, type = "h",  col = "deepskyblue3", main = title,

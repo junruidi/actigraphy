@@ -25,22 +25,6 @@ plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
 \item{cex.xaxis}{size of x axis annotation}
 
 \item{cex.yaxis}{size of y axis annotation}
-
-\item{metrics}{What is the fragmentation metrics to exract. Can be
-"mean_bout","TP","Gini","power","hazard",or all the above metrics "all".}
-}
-\value{
-A list with elements
-\item{mean_r}{mean sedentary bout duration}
-\item{mean_a}{mean active bout duration}
-\item{SATP}{sedentary to active transition probability}
-\item{ASTP}{bactive to sedentary transition probability}
-\item{Gini_r}{Gini index for active bout}
-\item{Gini_a}{Gini index for sedentary bout}
-\item{h_r}{hazard function for sedentary bout}
-\item{h_a}{hazard function for active bout}
-\item{alpha_r}{power law parameter for sedentary bout}
-\item{alpha_a}{power law parameter for active bout}
 }
 \description{
 Given a activity vector (and a wear/nonwear flag vector), plot the
