@@ -53,6 +53,9 @@ fragmentation = function(
   bout.length,
   metrics = c("mean_bout","TP","Gini","power","hazard","all")
 ){
+  values = NULL
+  rm(list = c("values"))
+
   metrics = match.arg(metrics)
 
   if(missing(w)){

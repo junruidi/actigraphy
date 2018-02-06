@@ -31,6 +31,10 @@ crfpca = function(
   pve = 0.9
 ){
 
+  # stupid NSE problem with dplyr
+  ID = . = NULL
+  rm(list = c("ID", "."))
+
   count.data$Day = NULL
 
   if(logtransform){

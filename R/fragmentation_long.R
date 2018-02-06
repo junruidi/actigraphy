@@ -72,6 +72,10 @@ fragmentation_long = function(
   metrics = c("mean_bout","TP","Gini","power","hazard","all"),
   by = c("day","subject")
 ){
+  ID = values = . = NULL
+  rm(list = c("ID", "values", "."))
+
+
   metrics = match.arg(metrics)
   by = match.arg(by)
 

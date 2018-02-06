@@ -32,6 +32,12 @@ ExtCos_long = function(
   count.data,
   logtransform = TRUE
 ){
+
+  # stupid NSE problem with dplyr
+  ID = values = . = NULL
+  rm(list = c("ID", "values", "."))
+
+
   long.count = reshape(count.data, varying = names(count.data)[3:1442],direction = "long",
                        timevar = "MIN",idvar = c("ID","Day"),v.names = "values")
   long.count = long.count[
