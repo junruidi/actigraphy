@@ -22,7 +22,7 @@
 #' \item{alpha_a}{power law parameter for active bout}
 #'
 #' @importFrom stats na.omit reshape
-#' @importFrom dplyr%>% as_data_frame filter
+#' @importFrom dplyr %>% as_data_frame filter
 #' @importFrom accelerometry accel.bouts rle2
 #' @importFrom survival survfit Surv
 #' @importFrom ineq Gini

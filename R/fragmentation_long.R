@@ -33,7 +33,7 @@
 #'
 #'
 #' @importFrom stats na.omit reshape
-#' @importFrom dplyr group_by  %>%
+#' @importFrom dplyr group_by %>%
 #' @importFrom dplyr do as_data_frame filter
 #' @importFrom accelerometry accel.bouts rle2
 #' @importFrom survival survfit Surv
