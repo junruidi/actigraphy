@@ -73,7 +73,7 @@ In this version, we focus on the physical activity and circadian rhythmicity dom
     * extended cosinor model with anti logistic transformed cosine curves: `ExtCos`, `ExtCos_long`
     * Intradaily variability: `IV`, `IV_long`
 
-Sleep features, which may need other algorithms will be implemented in the future. 
+Sleep features (which may rely on addtional algorithms) will be implemented in the future. 
 
 
 
