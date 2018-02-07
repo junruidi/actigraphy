@@ -18,8 +18,8 @@
 #'
 #' @export
 #' @examples
-#' coutn.day = rpois(1440*5, lambda = 5)
-#' extcos = ExtCos(x = coutn.day, logtransform  = TRUE)
+#' count.days = rpois(1440*5, lambda = 5)
+#' extcos = ExtCos(x = count.days, logtransform  = TRUE)
 #'
 #'
 

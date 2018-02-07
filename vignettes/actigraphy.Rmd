@@ -53,7 +53,6 @@ In this version, we only incorporate type 3 . For 1 and 2 there are more appropr
 We also provide the `plot_profile` as a visual inspection tool to visualize daily activity profile with background indicating wear/nonwear flag (is supplied). Most the plot controling arguments are simlar to the R base `plot`, 
 
 ```{r,fig.height = 4, fig.width = 8}
-library(actigraphy)
 data(example_activity_data)
 count1 = c(t(example_activity_data$count[1,-c(1,2)]))
 wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
@@ -77,15 +76,114 @@ In this version, we focus on the physical activity and circadian rhythmicity dom
 Sleep features (which may rely on addtional algorithms) will be implemented in the future. 
 
 ### 2.1 total volume of physical activity
+Total volumen of physical activity serves as a proxy for the total amount of accumulated physical activity over a day. Commonly used features of total volume are total activity count TAC$=\sum_{wear}y(t)$, and total log transformed activity count TLAC$=\sum_{wear}\log(y(t) + 1)$. The `Tvol` function calculate either TAC or TLAC (depending on the argument `logtransform`) provided the count data, and wear/nonwear flag data (if not provided, default to be from 5:00AM to 11:00PM).
+
+```{r, eval=FALSE}
+data(example_activity_data)
+count = example_activity_data$count
+wear = example_activity_data$wear
+tac = Tvol(count.data = count,weartime = wear,logtransform = FALSE)
+tlac = Tvol(count.data = count,weartime = wear,logtransform = TRUE)
+```
 
 ### 2.2 time related features
+It is sometimes of interest to look at time spent in a certain state during a day. For example, total sedentary time (TST), total activity time (TAT), light physical activity (LiPA), and moderate to vigorous activity (MVPA). From minute level count data, the state are usually defined based on a threshold. `Time` and `Time_long` calcualte such time features, (for a single vector amd whole dataset respectively). The argument `smallerthan` controls whether we want smaller than or greater than or equal to the `threshold`. E.g. for TST, we should specify `smallerthan = TRUE`.
+
+For a single day of count (a vector):
+```{r,eval=FALSE}
+data(example_activity_data)
+count1 = c(t(example_activity_data$count[1,-c(1,2)]))
+wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
+tst = Time(x = count1, w = wear1, thresh = 100,smallerthan = TRUE)
+tat = Time(x = count1, w = wear1, thresh = 100,smallerthan = FALSE)
+```
+
+Given all the activity and wear/nonwear flag data for the whole dataset, 
+```{r,eval=FALSE}
+data(example_activity_data)
+count = example_activity_data$count
+wear = example_activity_data$wear
+sed_all = Time_long(count.data = count,weartime = wear,
+thresh = 100,smallerthan = TRUE)
+```
 
 ### 2.3 fragmentation metrics
 
+Fragmentation metrics study the accumulation pattern of TST and TAT by quantifying the alternating these sequences via summaries of duration of and fre- quency of switching between sedentary and active bouts. Here is the list of available fragmentation metrics
+
+* average bout duration: bout/minute.
+* transition probability: reexpressed as the reciprocal of averge bout durations
+* Gini index: absolute variability normalized to the average bout duration
+* average hazard
+* power law distribution parameter.
+
+We can calculate the above mentioned metrics for both sedentary and active bout. [Details about fragmentations](https://www.biorxiv.org/content/early/2017/08/31/182337).
+
+`fragmentation` and `fragmentation_long` calcualte fragmentation features, (for a single vector amd whole dataset respectively). The argument `metrics`, which consists of "mean_bout", "TP", "Gini", "hazard", "power", and "all" decides which metrics to calcualte. "all" will lead to all metrics.
+
+For a single day of count (a vector):
+```{r,eval=FALSE}
+data(example_activity_data)
+count1 = c(t(example_activity_data$count[1,-c(1,2)]))
+wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
+mb = fragmentation(x = count1, w = wear1, thresh = 100, metrics = "mean_bout")
+tp = fragmentation(x = count1, w = wear1, thresh = 100, metrics = "TP")
+```
+
+Given all the activity and wear/nonwear flag data for the whole dataset, user can choose to calcualte framentation at daily level, or aggregate bouts across all available days by choosing from either "subject" and "day" for the argument `by`:
+```{r,eval=FALSE}
+data(example_activity_data)
+count = example_activity_data$count
+wear = example_activity_data$wear
+frag_by_subject = fragmentation_long(count.data = count, weartime = wear,thresh = 100, metrics = "all",by = "subject")
+frag_by_day = fragmentation_long(count.data = count, weartime = wear,thresh = 100, metrics = "all",by = "day")
+```
+
 ### 2.4 extended cosinor model
+The classic cosinor model is defined as $r(t)= mes + amp \times c(t)$ where $c(t) = \cos([t-\phi]2\pi/24)$ where mes is mesor, amp is amplitude, $\phi$ is the acropoase. Extended cosinor model allows for two additional parameters to control the shape. Here we implement the anti logistic transformation, and have $r(t) = min +amp\times F(c(t))$, where $F()$ is the anti logistic function.
+
+`ExtCos` and `ExtCos_long` calcualte the five parameters, (for a single vector amd whole dataset respectively). It is suggested to log transformed the curve by choose `logtransform = TRUE`.
+
+Usage of the function is simple as 
+```{r, eval=FALSE}
+count.days.simu = rpois(1440*5, lambda = 5)
+extcos = ExtCos(x = count.days.simu, logtransform  = TRUE)
+
+data(example_activity_data)
+count.data = example_activity_data$count
+extcos = ExtCos_long(count.data = count.data, logtransform  = TRUE)
+
+```
 
 ### 2.5 intradaily variability
+IV measures fragmentation in the rest/activtiy rhythms and is capable of detcting periods of daytime sleep and nocturnal arousal and is calcualted as the ratio of the mean squares of the differences between all successive hours (or minutes), and the mean squares around the grand mean.
+
+`IV` and `IV_long` calcualte IV, (for a single vector amd whole dataset respectively). The argument `level` is used to choose whether to calcualte IV at minute or hour level. 
+
+For a single vector,
+```{r,eval=FALSE}
+data(example_activity_data)
+count1 = c(t(example_activity_data$count[1,-c(1,2)]))
+iv = IV(x = count1, level = "hour")
+```
+
+For the whole dataset,
+```{r,eval=FALSE}
+data(example_activity_data)
+count.data = example_activity_data$count
+iv_all = IV_long(count.data = count.data, level = "hour")
+```
 
 ### 2.6 functional principal component analysis
 
+As opposed to extCosinor model, functional principal component analysis (FPCA) is a data driven technique that makes no parametric assumptions about the functional form of diurnal patterns. FPCA represents any sample of diurnal patterns via L2-orthogonal functional "principal components". The resulted principal component scores can be used. Here, FPCA is done by using the sandwich smoother. `crfpca` calls the `fpca.face` function in the refund package. It is suggsted to take the log transformation to reduce the skewness of count data by setting `logtransform = TRUE`. 
 
+Notice that, here, for simplicity and better interpretability, for each subject, we take the average across all valid days, therefore, we don't account for the within person correlation. To incorporate the within person correlation, one can choose to use multilevel FPCA (not implemented here, see `refund::mfpca.sc`).
+
+```{r,eval=FALSE}
+data(example_activity_data)
+count.data = example_activity_data$count
+fpca = crfpca(count.data = count, knots = 20, pve = 0.9, logtransform  = TRUE)
+scores = fpca$pcs
+eignfunction = fpca$phi
+```
