@@ -37,8 +37,9 @@ crfpca = function(
 
   count.data$Day = NULL
 
+
   if(logtransform){
-    count.data[,2:1442] = log(count.data[,2:1442] + 1)
+    count.data[,2:1441] = log(count.data[,2:1441] + 1)
   }
   act = as.data.frame(count.data %>% group_by(ID) %>% summarise_all(funs(mean(.,na.rm = T))))
   ID = act$ID

@@ -15,6 +15,7 @@
 #' @param cex.yaxis size of y axis annotation
 #' @param mar defaults to c(4, 4, 2, 1)
 #' @param oma defaults to c(1, 1, 1, 1)
+#' @param ylab y axis label
 #'
 #' @importFrom grDevices rgb
 #' @importFrom graphics abline axis par plot
@@ -43,7 +44,8 @@ plot_profile = function(
   cex.xaxis = 1,
   cex.yaxis = 1,
   oma = c(1,1,1,1),
-  mar = c(4, 4, 2, 1)
+  mar = c(4, 4, 2, 1),
+  ylab = "AC"
 ){
 
   breaks = seq(1,1441, hr * 60)
@@ -55,8 +57,9 @@ plot_profile = function(
 
   par(mar = mar)
   par(oma = oma)
+
   plot(x, type = "h",  col = "deepskyblue3", main = title,
-       yaxt = "n", xaxt = "n", xlab = "", ylab = "AC",
+       yaxt = "n", xaxt = "n", xlab = "", ylab = ylab,
        cex.main = cex.main, cex.sub = cex.sub, axes = F,cex.lab = cex.lab)
   if(!missing(w)){
     ind.nonwear = which(w == 0)
