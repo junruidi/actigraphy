@@ -4,7 +4,7 @@
 \alias{fragmentation_long}
 \title{Fragmentation Metrics for Whole Dataset}
 \usage{
-fragmentation_long(count.data, weartime, thresh, bout.length,
+fragmentation_long(count.data, weartime, thresh, bout.length = 1,
   metrics = c("mean_bout", "TP", "Gini", "power", "hazard", "all"),
   by = c("day", "subject"))
 }

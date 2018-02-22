@@ -68,7 +68,7 @@ fragmentation_long = function(
   count.data,
   weartime,
   thresh,
-  bout.length,
+  bout.length = 1,
   metrics = c("mean_bout","TP","Gini","power","hazard","all"),
   by = c("day","subject")
 ){
