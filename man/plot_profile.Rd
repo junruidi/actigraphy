@@ -6,7 +6,7 @@
 \usage{
 plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
   hr = 3, at.y = NULL, cex.xaxis = 1, cex.yaxis = 1, oma = c(1, 1, 1,
-  1), mar = c(4, 4, 2, 1))
+  1), mar = c(4, 4, 2, 1), ylab = "AC")
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}
@@ -33,6 +33,8 @@ has to be \code{integer}; defualts to be 3.}
 \item{oma}{defaults to c(1, 1, 1, 1)}
 
 \item{mar}{defaults to c(4, 4, 2, 1)}
+
+\item{ylab}{y axis label}
 }
 \description{
 Given a activity vector (and a wear/nonwear flag vector), plot the
