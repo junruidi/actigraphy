@@ -49,8 +49,8 @@
 fragmentation = function(
   x,
   w,
-  thresh = 1,
-  bout.length,
+  thresh ,
+  bout.length = 1,
   metrics = c("mean_bout","TP","Gini","power","hazard","all")
 ){
   values = NULL

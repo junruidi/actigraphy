@@ -4,7 +4,7 @@
 \alias{fragmentation}
 \title{Fragmentation Metrics}
 \usage{
-fragmentation(x, w, thresh = 1, bout.length, metrics = c("mean_bout", "TP",
+fragmentation(x, w, thresh, bout.length = 1, metrics = c("mean_bout", "TP",
   "Gini", "power", "hazard", "all"))
 }
 \arguments{
