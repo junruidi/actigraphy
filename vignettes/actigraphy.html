@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Junrui Di" />
+
+
+<title>actigraphy</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">actigraphy</h1>
+<h4 class="author"><em>Junrui Di</em></h4>
+<h4 class="date"><em>2/9/2018</em></h4>
+
+
+
+<p>This is the vignette for “actigraphy” package. This package extract multiple commonly used features from minute level actigraphy data.</p>
+<p>To download the package from Github</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;junruidi/actigraphy&quot;</span>)</code></pre></div>
+<p>And to load in the package into the R environment</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(actigraphy)</code></pre></div>
+<div id="data" class="section level2">
+<h2>1. Data</h2>
+<p>The expected data should consider at least one data frame of minute level activity counts, stored in a format of <code>data.frame</code> of dimension <span class="math inline">\((\sum_i d_i) \times 1442\)</span>, where <span class="math inline">\(d_i\)</span> is the number of available days for subject i.And the order of the 1442 columns (and corresponding column names) should be “ID”,“Day”,“MIN1”,…“MIN1440”.</p>
+<p>It is preferrable that user can also provide a <code>data.frame</code> of wear/non-wear flag as same dimension of the activity counts. This flag data can serve as the following purposes:</p>
+<ol style="list-style-type: decimal">
+<li>Define time regions where the subjects were wearing the devices. E.g. in NHANES 2003 - 2006, protocol required subjects to remove the devices when sleep. Certian non-wear detection algorithms can be used (see package <a href="https://github.com/andrew-leroux/nhanesdata"><code>nahnesdata</code></a> ).</li>
+<li>Separate sleep and wake period to derive domain specific features. E.g. when actigraphy record is paired with a sleep log, or when the device has built in sleep detecting algorithms.</li>
+<li>Define regions where features should be calcualted. E.g, we want features to be calculated only for 5:00AM to 11:00PM.</li>
+</ol>
+<p>Thbe wear/nonwear flag data should only consist of entries 0/1 representing nonwear/wear, sleep/wake, regions of interest/regions of interests, respectively. This is especially crucial for calculating features like total sedentary time, fragmentation etc. Because, we are not supposed to mix sedentary with sleep.</p>
+<p>If no wear/nonwear flag data is supplied, users can create one using the <code>wear_flag</code> function providing the time region:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+weartime =<span class="st"> </span><span class="kw">wear_flag</span>(<span class="dt">count.data =</span> count, <span class="dt">start =</span> <span class="st">&quot;06:00&quot;</span>, <span class="dt">end =</span> <span class="st">&quot;23:00&quot;</span>)</code></pre></div>
+<p>In this version, we only incorporate type 3 . For 1 and 2 there are more appropriate softwares to look for.</p>
+<p>We also provide the <code>plot_profile</code> as a visual inspection tool to visualize daily activity profile with background indicating wear/nonwear flag (is supplied). Most the plot controling arguments are simlar to the R base <code>plot</code>,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>count[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+wear1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>wear[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+id =<span class="st"> </span>example_activity_data<span class="op">$</span>count<span class="op">$</span>ID[<span class="dv">1</span>]
+day=<span class="st"> </span>example_activity_data<span class="op">$</span>count<span class="op">$</span>Day[<span class="dv">1</span>]
+<span class="kw">plot_profile</span>(<span class="dt">x=</span>count1, <span class="dt">w=</span>wear1, <span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;ID &quot;</span>,id, <span class="st">&quot;, Day  &quot;</span>, day),<span class="dt">cex.main =</span> <span class="fl">1.3</span>,<span class="dt">cex.lab =</span> <span class="fl">1.2</span>, <span class="dt">cex.xaxis =</span> <span class="dv">1</span>,<span class="dt">cex.yaxis =</span> <span class="dv">1</span>,<span class="dt">hr =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="feature-extractions" class="section level2">
+<h2>2. Feature Extractions</h2>
+<p>In this version, we focus on the physical activity and circadian rhythmicity domain. We have the funcions to calcualte the following features</p>
+<ul>
+<li>Physical activity
+<ul>
+<li>total volume: <code>Tvol</code></li>
+<li>time related features, e.g. sedentary time, MVAP: <code>Time</code>, <code>Time_long</code></li>
+<li>fragmentation metrics: <code>fragmentation</code>, <code>fragmentation_long</code></li>
+</ul></li>
+<li>Circadian rhythmicity
+<ul>
+<li>functional PCA: <code>crfpca</code></li>
+<li>extended cosinor model with anti logistic transformed cosine curves: <code>ExtCos</code>, <code>ExtCos_long</code></li>
+<li>Intradaily variability: <code>IV</code>, <code>IV_long</code></li>
+</ul></li>
+</ul>
+<p>Sleep features (which may rely on addtional algorithms) will be implemented in the future.</p>
+<div id="total-volume-of-physical-activity" class="section level3">
+<h3>2.1 total volume of physical activity</h3>
+<p>Total volumen of physical activity serves as a proxy for the total amount of accumulated physical activity over a day. Commonly used features of total volume are total activity count TAC<span class="math inline">\(=\sum_{wear}y(t)\)</span>, and total log transformed activity count TLAC<span class="math inline">\(=\sum_{wear}\log(y(t) + 1)\)</span>. The <code>Tvol</code> function calculate either TAC or TLAC (depending on the argument <code>logtransform</code>) provided the count data, and wear/nonwear flag data (if not provided, default to be from 5:00AM to 11:00PM).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+wear =<span class="st"> </span>example_activity_data<span class="op">$</span>wear
+tac =<span class="st"> </span><span class="kw">Tvol</span>(<span class="dt">count.data =</span> count,<span class="dt">weartime =</span> wear,<span class="dt">logtransform =</span> <span class="ot">FALSE</span>)
+tlac =<span class="st"> </span><span class="kw">Tvol</span>(<span class="dt">count.data =</span> count,<span class="dt">weartime =</span> wear,<span class="dt">logtransform =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="time-related-features" class="section level3">
+<h3>2.2 time related features</h3>
+<p>It is sometimes of interest to look at time spent in a certain state during a day. For example, total sedentary time (TST), total activity time (TAT), light physical activity (LiPA), and moderate to vigorous activity (MVPA). From minute level count data, the state are usually defined based on a threshold. <code>Time</code> and <code>Time_long</code> calcualte such time features, (for a single vector amd whole dataset respectively). The argument <code>smallerthan</code> controls whether we want smaller than or greater than or equal to the <code>threshold</code>. E.g. for TST, we should specify <code>smallerthan = TRUE</code>.</p>
+<p>For a single day of count (a vector):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>count[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+wear1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>wear[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+tst =<span class="st"> </span><span class="kw">Time</span>(<span class="dt">x =</span> count1, <span class="dt">w =</span> wear1, <span class="dt">thresh =</span> <span class="dv">100</span>,<span class="dt">smallerthan =</span> <span class="ot">TRUE</span>)
+tat =<span class="st"> </span><span class="kw">Time</span>(<span class="dt">x =</span> count1, <span class="dt">w =</span> wear1, <span class="dt">thresh =</span> <span class="dv">100</span>,<span class="dt">smallerthan =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>Given all the activity and wear/nonwear flag data for the whole dataset,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+wear =<span class="st"> </span>example_activity_data<span class="op">$</span>wear
+sed_all =<span class="st"> </span><span class="kw">Time_long</span>(<span class="dt">count.data =</span> count,<span class="dt">weartime =</span> wear,
+<span class="dt">thresh =</span> <span class="dv">100</span>,<span class="dt">smallerthan =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="fragmentation-metrics" class="section level3">
+<h3>2.3 fragmentation metrics</h3>
+<p>Fragmentation metrics study the accumulation pattern of TST and TAT by quantifying the alternating these sequences via summaries of duration of and fre- quency of switching between sedentary and active bouts. Here is the list of available fragmentation metrics</p>
+<ul>
+<li>average bout duration: bout/minute.</li>
+<li>transition probability: reexpressed as the reciprocal of averge bout durations</li>
+<li>Gini index: absolute variability normalized to the average bout duration</li>
+<li>average hazard</li>
+<li>power law distribution parameter.</li>
+</ul>
+<p>We can calculate the above mentioned metrics for both sedentary and active bout. <a href="https://www.biorxiv.org/content/early/2017/08/31/182337">Details about fragmentations</a>.</p>
+<p><code>fragmentation</code> and <code>fragmentation_long</code> calcualte fragmentation features, (for a single vector amd whole dataset respectively). The argument <code>metrics</code>, which consists of “mean_bout”, “TP”, “Gini”, “hazard”, “power”, and “all” decides which metrics to calcualte. “all” will lead to all metrics.</p>
+<p>For a single day of count (a vector):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>count[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+wear1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>wear[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+mb =<span class="st"> </span><span class="kw">fragmentation</span>(<span class="dt">x =</span> count1, <span class="dt">w =</span> wear1, <span class="dt">thresh =</span> <span class="dv">100</span>, <span class="dt">metrics =</span> <span class="st">&quot;mean_bout&quot;</span>,<span class="dt">bout.length =</span> <span class="dv">1</span>)
+tp =<span class="st"> </span><span class="kw">fragmentation</span>(<span class="dt">x =</span> count1, <span class="dt">w =</span> wear1, <span class="dt">thresh =</span> <span class="dv">100</span>, <span class="dt">metrics =</span> <span class="st">&quot;TP&quot;</span>,<span class="dt">bout.length =</span> <span class="dv">1</span>)</code></pre></div>
+<p>Given all the activity and wear/nonwear flag data for the whole dataset, user can choose to calcualte framentation at daily level, or aggregate bouts across all available days by choosing from either “subject” and “day” for the argument <code>by</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+wear =<span class="st"> </span>example_activity_data<span class="op">$</span>wear
+frag_by_subject =<span class="st"> </span><span class="kw">fragmentation_long</span>(<span class="dt">count.data =</span> count, <span class="dt">weartime =</span> wear,<span class="dt">thresh =</span> <span class="dv">100</span>, <span class="dt">metrics =</span> <span class="st">&quot;all&quot;</span>,<span class="dt">by =</span> <span class="st">&quot;subject&quot;</span>,<span class="dt">bout.length =</span> <span class="dv">1</span>)
+frag_by_day =<span class="st"> </span><span class="kw">fragmentation_long</span>(<span class="dt">count.data =</span> count, <span class="dt">weartime =</span> wear,<span class="dt">thresh =</span> <span class="dv">100</span>, <span class="dt">metrics =</span> <span class="st">&quot;all&quot;</span>,<span class="dt">by =</span> <span class="st">&quot;day&quot;</span>,<span class="dt">bout.length =</span> <span class="dv">1</span>)</code></pre></div>
+</div>
+<div id="extended-cosinor-model" class="section level3">
+<h3>2.4 extended cosinor model</h3>
+<p>The classic cosinor model is defined as <span class="math inline">\(r(t)= mes + amp \times c(t)\)</span> where <span class="math inline">\(c(t) = \cos([t-\phi]2\pi/24)\)</span> where mes is mesor, amp is amplitude, <span class="math inline">\(\phi\)</span> is the acropoase. Extended cosinor model allows for two additional parameters to control the shape. Here we implement the anti logistic transformation, and have <span class="math inline">\(r(t) = min +amp\times F(c(t))\)</span>, where <span class="math inline">\(F()\)</span> is the anti logistic function.</p>
+<p><code>ExtCos</code> and <code>ExtCos_long</code> calcualte the five parameters, (for a single vector amd whole dataset respectively). It is suggested to log transformed the curve by choose <code>logtransform = TRUE</code>.</p>
+<p>Usage of the function is simple as</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count.days.simu =<span class="st"> </span><span class="kw">rpois</span>(<span class="dv">1440</span><span class="op">*</span><span class="dv">5</span>, <span class="dt">lambda =</span> <span class="dv">5</span>)
+extcos =<span class="st"> </span><span class="kw">ExtCos</span>(<span class="dt">x =</span> count.days.simu, <span class="dt">logtransform  =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">data</span>(example_activity_data)
+count.data =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+extcos =<span class="st"> </span><span class="kw">ExtCos_long</span>(<span class="dt">count.data =</span> count.data, <span class="dt">logtransform  =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="intradaily-variability" class="section level3">
+<h3>2.5 intradaily variability</h3>
+<p>IV measures fragmentation in the rest/activtiy rhythms and is capable of detcting periods of daytime sleep and nocturnal arousal and is calcualted as the ratio of the mean squares of the differences between all successive hours (or minutes), and the mean squares around the grand mean.</p>
+<p><code>IV</code> and <code>IV_long</code> calcualte IV, (for a single vector amd whole dataset respectively). The argument <code>level</code> is used to choose whether to calcualte IV at minute or hour level.</p>
+<p>For a single vector,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">t</span>(example_activity_data<span class="op">$</span>count[<span class="dv">1</span>,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))
+iv =<span class="st"> </span><span class="kw">IV</span>(<span class="dt">x =</span> count1, <span class="dt">level =</span> <span class="st">&quot;hour&quot;</span>)</code></pre></div>
+<p>For the whole dataset,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count.data =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+iv_all =<span class="st"> </span><span class="kw">IV_long</span>(<span class="dt">count.data =</span> count.data, <span class="dt">level =</span> <span class="st">&quot;hour&quot;</span>)</code></pre></div>
+</div>
+<div id="functional-principal-component-analysis" class="section level3">
+<h3>2.6 functional principal component analysis</h3>
+<p>As opposed to extCosinor model, functional principal component analysis (FPCA) is a data driven technique that makes no parametric assumptions about the functional form of diurnal patterns. FPCA represents any sample of diurnal patterns via L2-orthogonal functional “principal components”. The resulted principal component scores can be used. Here, FPCA is done by using the sandwich smoother. <code>crfpca</code> calls the <code>fpca.face</code> function in the refund package. It is suggsted to take the log transformation to reduce the skewness of count data by setting <code>logtransform = TRUE</code>.</p>
+<p>Notice that, here, for simplicity and better interpretability, for each subject, we take the average across all valid days, therefore, we don’t account for the within person correlation. To incorporate the within person correlation, one can choose to use multilevel FPCA (not implemented here, see <code>refund::mfpca.sc</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(example_activity_data)
+count.data =<span class="st"> </span>example_activity_data<span class="op">$</span>count
+fpca =<span class="st"> </span><span class="kw">crfpca</span>(<span class="dt">count.data =</span> count, <span class="dt">knots =</span> <span class="dv">20</span>, <span class="dt">pve =</span> <span class="fl">0.9</span>, <span class="dt">logtransform  =</span> <span class="ot">TRUE</span>)
+scores =<span class="st"> </span>fpca<span class="op">$</span>pcs
+eignfunction =<span class="st"> </span>fpca<span class="op">$</span>phi</code></pre></div>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

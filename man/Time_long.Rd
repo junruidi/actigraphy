@@ -2,7 +2,7 @@
 % Please edit documentation in R/Time_long.R
 \name{Time_long}
 \alias{Time_long}
-\title{Fragmentation Metrics for Whole Dataset}
+\title{Timne Metrics for Whole Dataset}
 \usage{
 Time_long(count.data, weartime, thresh, smallerthan = TRUE, bout.length = 1)
 }
@@ -26,8 +26,7 @@ A dataframe with some of the following columns
 \item{time}{time of certain state}
 }
 \description{
-Fragmentation methods to study the transition between two states, e.g.
-sedentary v.s. active.This function is a whole dataset wrapper for \code{fragmentation}
+This function is a whole dataset wrapper for \code{Time}
 }
 \examples{
 data(example_activity_data)

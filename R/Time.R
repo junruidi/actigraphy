@@ -1,4 +1,4 @@
-#' @title Time of A Certian State
+#' @title Time of A Certain activity State
 #' @description Calculate the total time of being in certain state, e.g. sedentary, active, MVPA, etc.
 #'
 #' @param x \code{vector} of activity data.
@@ -38,8 +38,8 @@ Time = function(
 
   uwear = unique(c(w))
   uwear = as.integer(uwear)
-  if (!all(uwear %in% c(0, 1))) {
-    stop("weartime w has non 0-1 data!g")
+  if (!all(uwear %in% c(0, 1, NA))) {
+    stop("weartime w has non 0-1 data")
   }
 
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Time.R
 \name{Time}
 \alias{Time}
-\title{Time of A Certian State}
+\title{Time of A Certain activity State}
 \usage{
 Time(x, w, thresh, smallerthan = TRUE, bout.length = 1)
 }

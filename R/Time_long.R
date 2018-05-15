@@ -1,6 +1,5 @@
-#' @title Fragmentation Metrics for Whole Dataset
-#' @description Fragmentation methods to study the transition between two states, e.g.
-#' sedentary v.s. active.This function is a whole dataset wrapper for \code{fragmentation}
+#' @title Timne Metrics for Whole Dataset
+#' @description This function is a whole dataset wrapper for \code{Time}
 #'
 #' @param count.data \code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.
 #' The first two columns have to be ID and Day.
