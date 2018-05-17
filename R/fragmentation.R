@@ -73,6 +73,8 @@ fragmentation = function(
     stop("w has non 0-1 data!")
   }
 
+  x = na.omit(x)
+  w = na.omit(w)
 
   w[w == 0] = NA
   y = accel.bouts(counts = x, thresh.lower = thresh, bout.length = bout.length)

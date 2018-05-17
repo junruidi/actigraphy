@@ -151,7 +151,7 @@ fragmentation_long = function(
       ]
 
 
-    long.wear = reshape(weartime, varying = names(count.data)[3:1442],direction = "long",
+    long.wear = reshape(weartime, varying = names(weartime)[3:1442],direction = "long",
                          timevar = "MIN",idvar = c("ID","Day"),v.names = "values")
     long.wear= long.wear[
       with(long.wear, order(ID, Day,MIN)),
@@ -163,7 +163,7 @@ fragmentation_long = function(
     result= longdata  %>% group_by(ID) %>% do(out = fragmentation(.$count,.$wear,thresh = thresh,
      bout.length = bout.length, metrics = metrics))
 
-    idlist = result$ID
+    idlist = as.numeric(as.character(result$ID))
     result.list = result$out
 
     vfrag = unlist(result.list)
@@ -182,7 +182,7 @@ fragmentation_long = function(
                                      vfrag[seq(10,length(vfrag),10)]))
     }
     if(metrics != "all"){
-      frag_all = as.data.frame(cbind(idlist,
+      frag_all = as.data.frame(cbind(idlist[,1],
                                      vfrag[seq(1,length(vfrag),2)],
                                      vfrag[seq(2,length(vfrag),2)]))
     }
