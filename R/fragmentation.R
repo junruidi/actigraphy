@@ -69,7 +69,8 @@ fragmentation = function(
 
   uwear = unique(c(w))
   uwear = as.integer(uwear)
-  if (!all(uwear %in% c(0, 1, NA))) {
+  uwear = na.omit(uwear)
+  if (!all(uwear %in% c(0, 1))) {
     stop("w has non 0-1 data!")
   }
 
