@@ -28,7 +28,7 @@ RA = function(
 }
 
 roll = function(day.counts,k){
-  kvec = rollapplyr(day.counts, k, function(x) mean(x), fill = NA)
+  kvec = rollapplyr(day.counts, k, function(x) mean(x,na.rm = T), fill = NA)
   kvec = kvec[!is.na(kvec)]
   return(kvec)
 }

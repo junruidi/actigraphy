@@ -38,7 +38,7 @@ convert_2_hr = function(x){
   hr = NULL
   for(i in 1:24){
     temp = x[,(60*(i-1)+1):(60*i)]
-    temp.i = rowSums(temp)
+    temp.i = rowSums(temp,na.rm = T)
     hr = cbind(hr,temp.i)
   }
   hr = data.frame(hr)
