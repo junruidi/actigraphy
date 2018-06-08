@@ -40,7 +40,7 @@ ExtCos <- function(
   fit.nls <- nls.lm(par = par, fn = fn.res1, tmp.dat = tmp.dat)
   coef.nls <- coef(fit.nls)
   #####stage 2#######
-  newpar <- c(coef.nls[1] - abs(coef.nls[2]), 2, 0, 2, coef.nls[3])
+  newpar <- c(coef.nls[1] - abs(coef.nls[2]), 2 * abs(coef.nls[2]), 0, 2, coef.nls[3])
   fit2.nls <- nls.lm(newpar, fn = fn.res2, tmp.dat = tmp.dat, control = nls.lm.control(maxiter = 1000))
 
   cosinor.stat = as.numeric(coef(fit2.nls))
