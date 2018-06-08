@@ -3,7 +3,6 @@
 #' of circadian rhtymicity
 #'
 #' @param x  \code{data.frame} of dimension p by 1440, representing the p days of activity data for one subjectect
-#' @param level time resolution to calcualte IS. Can be either "minute", or "hour".
 #' @return IS
 #'
 #'
@@ -13,18 +12,15 @@
 #' @examples
 #' data(example_activity_data)
 #' count1 = example_activity_data$count[c(1,2,3),-c(1,2)]
-#' is = IS(x = count1, level = "hour")
+#' is = IS(x = count1)
 #'
 #'
 
 IS = function(
-  x,
-  level = c("minute","hour")
+  x
 ){
-  level = match.arg(level)
-  if(level == "hour"){
-    x = convert_2_hr(x)
-  }
+
+  x = convert_2_hr(x)
   p = ncol(x)
   hr_mean = colMeans(x)
   v = c(t(x))

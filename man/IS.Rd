@@ -4,12 +4,10 @@
 \alias{IS}
 \title{Interdaily Statbility}
 \usage{
-IS(x, level = c("minute", "hour"))
+IS(x)
 }
 \arguments{
 \item{x}{\code{data.frame} of dimension p by 1440, representing the p days of activity data for one subjectect}
-
-\item{level}{time resolution to calcualte IS. Can be either "minute", or "hour".}
 }
 \value{
 IS
@@ -21,7 +19,7 @@ of circadian rhtymicity
 \examples{
 data(example_activity_data)
 count1 = example_activity_data$count[c(1,2,3),-c(1,2)]
-is = IS(x = count1, level = "hour")
+is = IS(x = count1)
 
 
 }
