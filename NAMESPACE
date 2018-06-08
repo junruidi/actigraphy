@@ -2,6 +2,7 @@
 
 export(ExtCos)
 export(ExtCos_long)
+export(IS)
 export(IV)
 export(IV_long)
 export(RA)

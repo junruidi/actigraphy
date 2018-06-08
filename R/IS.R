@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' data(example_activity_data)
-#' count1 = c(t(example_activity_data$count[c(1,2,3),-c(1,2)]))
+#' count1 = example_activity_data$count[c(1,2,3),-c(1,2)]
 #' is = IS(x = count1, level = "hour")
 #'
 #'

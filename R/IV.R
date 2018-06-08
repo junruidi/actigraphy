@@ -2,7 +2,7 @@
 #' @description This function calcualte intradaily variability, a nonparametric metric
 #' reprsenting fragmentation of circadian rhtymicity
 #'
-#' @param x  \code{vector} vector of dimension 440 which reprsents 1440 minute activity data
+#' @param x  \code{vector} vector of dimension 1440 which reprsents 1440 minute activity data
 #' @param level time resolution to calcualte IV. Can be either "minute", or "hour".
 #' @return IV
 #'
