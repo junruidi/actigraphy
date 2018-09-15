@@ -72,7 +72,7 @@ fragmentation_long = function(
   metrics = c("mean_bout","TP","Gini","power","hazard","all"),
   by = c("day","subject")
 ){
-  ID = values = . = NULL
+  ID = value = . = NULL
   rm(list = c("ID", "value", "."))
 
 
