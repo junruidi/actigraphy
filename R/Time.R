@@ -8,7 +8,7 @@
 #' @param smallerthan Find a state that is smaller than a threshold, or greater than or equal to.
 #'
 #' @return Time
-#' @importFrom accelerometry accel.bouts
+#' @importFrom accelerometry bouts
 #'
 #' @export
 #'
@@ -47,7 +47,7 @@ Time = function(
 
 
   w[w == 0] = NA
-  y = accel.bouts(counts = x, thresh.lower = thresh, bout.length = bout.length)
+  y = bouts(counts = x, thresh_lower = thresh, bout_length = bout.length)
   yw = y * w
 
   if(smallerthan){

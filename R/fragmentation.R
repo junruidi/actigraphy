@@ -23,11 +23,13 @@
 #'
 #' @importFrom stats na.omit reshape
 #' @importFrom dplyr %>% as_data_frame filter
-#' @importFrom accelerometry accel.bouts rle2
+#' @importFrom accelerometry bouts rle2
 #' @importFrom survival survfit Surv
 #' @importFrom ineq Gini
 #'
 #' @export
+#'
+#' @references Di et al. Patterns of sedentary and active time accumulation are associated with mortality in US adults: The NHANES study.
 #'
 #' @details Metrics include
 #' mean_bout (mean bout duration),
@@ -53,8 +55,8 @@ fragmentation = function(
   bout.length = 1,
   metrics = c("mean_bout","TP","Gini","power","hazard","all")
 ){
-  values = NULL
-  rm(list = c("values"))
+  value = NULL
+  rm(list = c("value"))
 
   metrics = match.arg(metrics)
 
@@ -77,7 +79,7 @@ fragmentation = function(
   w = na.omit(w)
 
   w[w == 0] = NA
-  y = accel.bouts(counts = x, thresh.lower = thresh, bout.length = bout.length)
+  y = bouts(counts = x, thresh_lower  = thresh, bout_length = bout.length)
   yw = y * w
 
   uy = unique(na.omit(yw))
@@ -120,10 +122,10 @@ fragmentation = function(
 
   if (length(uy) > 1) {
   mat = as_data_frame(rle2(yw)) %>%
-    filter(!is.na(values))
+    filter(!is.na(value))
 
-  A = mat$lengths[which(mat$values == 1)]
-  R = mat$lengths[which(mat$values == 0)]
+  A = mat$length[which(mat$value == 1)]
+  R = mat$length[which(mat$value == 0)]
 
   if(metrics == "mean_bout"){
     frag = list(mean_r = mean(R), mean_a = mean(A))

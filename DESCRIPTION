@@ -40,4 +40,4 @@ Type: Package
 VignetteBuilder: knitr
 URL: https://github.com/junruidi/actigraphy
 BugReports: https://github.com/junruidi/actigraphy/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

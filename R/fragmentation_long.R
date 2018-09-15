@@ -35,7 +35,7 @@
 #' @importFrom stats na.omit reshape
 #' @importFrom dplyr group_by %>%
 #' @importFrom dplyr do as_data_frame filter
-#' @importFrom accelerometry accel.bouts rle2
+#' @importFrom accelerometry bouts rle2
 #' @importFrom survival survfit Surv
 #' @importFrom ineq Gini
 #'
@@ -73,7 +73,7 @@ fragmentation_long = function(
   by = c("day","subject")
 ){
   ID = values = . = NULL
-  rm(list = c("ID", "values", "."))
+  rm(list = c("ID", "value", "."))
 
 
   metrics = match.arg(metrics)

@@ -4,7 +4,8 @@
 \alias{Time_long}
 \title{Timne Metrics for Whole Dataset}
 \usage{
-Time_long(count.data, weartime, thresh, smallerthan = TRUE, bout.length = 1)
+Time_long(count.data, weartime, thresh, smallerthan = TRUE,
+  bout.length = 1)
 }
 \arguments{
 \item{count.data}{\code{data.frame} of dimension n*1442 containing the 1440 minute activity data for all n subject days.

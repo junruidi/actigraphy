@@ -10,7 +10,7 @@
 #' @param bout.length minimum duration of defining an active bout; defaults to 1.
 #' @param smallerthan Find a state that is smaller than a threshold, or greater than or equal to.
 #'
-#' @importFrom accelerometry accel.bouts
+#' @importFrom accelerometry bouts
 #'
 #' @return A dataframe with some of the following columns
 #' \item{ID}{identifier of the person}

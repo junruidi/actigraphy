@@ -4,9 +4,9 @@
 \alias{plot_profile}
 \title{Plot Daily Activity Profile}
 \usage{
-plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2, cex.lab = 1,
-  hr = 3, at.y = NULL, cex.xaxis = 1, cex.yaxis = 1, oma = c(1, 1, 1,
-  1), mar = c(4, 4, 2, 1), ylab = "AC")
+plot_profile(x, w, title = NULL, cex.main = 1, cex.sub = 2,
+  cex.lab = 1, hr = 3, at.y = NULL, cex.xaxis = 1, cex.yaxis = 1,
+  oma = c(1, 1, 1, 1), mar = c(4, 4, 2, 1), ylab = "AC")
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}

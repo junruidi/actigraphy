@@ -4,8 +4,8 @@
 \alias{fragmentation}
 \title{Fragmentation Metrics}
 \usage{
-fragmentation(x, w, thresh, bout.length = 1, metrics = c("mean_bout", "TP",
-  "Gini", "power", "hazard", "all"))
+fragmentation(x, w, thresh, bout.length = 1, metrics = c("mean_bout",
+  "TP", "Gini", "power", "hazard", "all"))
 }
 \arguments{
 \item{x}{\code{vector} of activity data.}
@@ -51,4 +51,7 @@ wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
 frag = fragmentation(x = count1, w = wear1, thresh = 100, bout.length = 1, metrics = "mean_bout")
 
 
+}
+\references{
+Di et al. Patterns of sedentary and active time accumulation are associated with mortality in US adults: The NHANES study.
 }
