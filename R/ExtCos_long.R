@@ -18,6 +18,7 @@
 #' \item{alpha}{alpha parameter}
 #' \item{beta}{beta parameter}
 #' \item{acro}{acrophase}
+#' \item{F_imp}{pseudo-F statistics}
 #'
 #' @export
 #' @examples
@@ -55,8 +56,9 @@ ExtCos_long = function(
                                 vext[seq(2,length(vext),5)],
                                 vext[seq(3,length(vext),5)],
                                 vext[seq(4,length(vext),5)],
-                                vext[seq(5,length(vext),5)]))
-  names(ext_all) = c("ID","min","amp","alpha","beta","acro")
+                                vext[seq(5,length(vext),5)],
+                                vext[seq(6,length(vext),5)]))
+  names(ext_all) = c("ID","min","amp","alpha","beta","acro","F_imp")
   row.names(ext_all) = c(1:length(idlist))
   return(ext_all)
 }

@@ -12,15 +12,6 @@ The first two columns have to be ID and Day.}
 
 \item{logtransform}{Conduct log transfomation before. Default is \code{TRUE}.}
 }
-\value{
-A \code{data.frame} with following columns
-\item{ID}{identifier of the person}
-\item{min}{minimum}
-\item{amp}{amplitude}
-\item{alpha}{alpha parameter}
-\item{beta}{beta parameter}
-\item{acro}{acrophase}
-}
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.
 Here we used the anti logistic transformed cosine curves, which provided 5 parameters.

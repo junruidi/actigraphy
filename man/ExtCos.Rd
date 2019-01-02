@@ -15,9 +15,10 @@ ExtCos(x, logtransform = TRUE)
 A list with elements
 \item{min}{minimum}
 \item{amp}{amplitude}
-\item{alpha}{alpha parameter}
-\item{beta}{beta parameter}
+\item{alpha}{alpha parameter:determines whether the peaks of the curve are wider than the troughs}
+\item{beta}{beta parameter: determines whether the function rises and falls more steeply than the cosine curve}
 \item{acro}{acrophase}
+\item{F_imp}{pseudo-F statistics}
 }
 \description{
 A parametric approach to study circadian rhythmicity assuming cosinor shape.

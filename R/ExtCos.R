@@ -12,9 +12,10 @@
 #' @return A list with elements
 #' \item{min}{minimum}
 #' \item{amp}{amplitude}
-#' \item{alpha}{alpha parameter}
-#' \item{beta}{beta parameter}
+#' \item{alpha}{alpha parameter:determines whether the peaks of the curve are wider than the troughs}
+#' \item{beta}{beta parameter: determines whether the function rises and falls more steeply than the cosine curve}
 #' \item{acro}{acrophase}
+#' \item{F_imp}{pseudo-F statistics}
 #'
 #' @export
 #' @examples
@@ -45,12 +46,17 @@ ExtCos <- function(
 
   cosinor.stat = as.numeric(coef(fit2.nls))
 
+  rss_cos = sum(residuals(fit.nls)^2)
+  rss_ext = sum(residuals(fit2.nls)^2)
+  F_imp = ((rss_cos - rss_ext)/2)/(rss_ext/(nrow(tmp.dat) - 5))
+
 
   return(  list(min = cosinor.stat[1],
                 amp = abs(cosinor.stat[2]),
                 alpha = cosinor.stat[3],
                 beta = cosinor.stat[4],
-                acro = cosinor.stat[5]))
+                acro = cosinor.stat[5]),
+                F_imp = F_imp)
 }
 
 fn.res1 <- function(par, tmp.dat) {
