@@ -12,13 +12,12 @@
 #' @examples
 #' data(example_activity_data)
 #' count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-#' iv = IV(x = count1, level = "hour")
+#' iv = IV(x = count1)
 #'
 #'
 
 IV = function(
-  x,
-  level = c("minute","hour")
+  x
 ){
   mean.counts <- mean(x)
   numerator <- sum(diff(x)^2) * length(x)

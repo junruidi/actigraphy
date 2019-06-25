@@ -15,14 +15,6 @@ library(actigraphy)
 #  count = example_activity_data$count
 #  weartime = wear_flag(count.data = count, start = "06:00", end = "23:00")
 
-## ----fig.height = 4, fig.width = 8---------------------------------------
-data(example_activity_data)
-count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-wear1 = c(t(example_activity_data$wear[1,-c(1,2)]))
-id = example_activity_data$count$ID[1]
-day= example_activity_data$count$Day[1]
-plot_profile(x=count1, w=wear1, title = paste0("ID ",id, ", Day  ", day),cex.main = 1.3,cex.lab = 1.2, cex.xaxis = 1,cex.yaxis = 1,hr = 2)
-
 ## ---- eval=FALSE---------------------------------------------------------
 #  data(example_activity_data)
 #  count = example_activity_data$count
@@ -70,7 +62,7 @@ plot_profile(x=count1, w=wear1, title = paste0("ID ",id, ", Day  ", day),cex.mai
 ## ----eval=FALSE----------------------------------------------------------
 #  data(example_activity_data)
 #  count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-#  iv = IV(x = count1, level = "hour")
+#  iv = IV(x = count1)
 
 ## ----eval=FALSE----------------------------------------------------------
 #  data(example_activity_data)

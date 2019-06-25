@@ -4,7 +4,7 @@
 \alias{IV}
 \title{Intradaily Variability}
 \usage{
-IV(x, level = c("minute", "hour"))
+IV(x)
 }
 \arguments{
 \item{x}{\code{vector} vector of dimension 1440 which reprsents 1440 minute activity data. Or users can bin the data into different resolutions, e.g. 10 minute, 1 hour, etc.}
@@ -19,7 +19,7 @@ reprsenting fragmentation of circadian rhtymicity
 \examples{
 data(example_activity_data)
 count1 = c(t(example_activity_data$count[1,-c(1,2)]))
-iv = IV(x = count1, level = "hour")
+iv = IV(x = count1)
 
 
 }
