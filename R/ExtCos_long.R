@@ -52,12 +52,12 @@ ExtCos_long = function(
 
   vext= unlist(result.list)
   ext_all = as.data.frame(cbind(idlist,
-                                vext[seq(1,length(vext),5)],
-                                vext[seq(2,length(vext),5)],
-                                vext[seq(3,length(vext),5)],
-                                vext[seq(4,length(vext),5)],
-                                vext[seq(5,length(vext),5)],
-                                vext[seq(6,length(vext),5)]))
+                                vext[seq(1,length(vext),6)],
+                                vext[seq(2,length(vext),6)],
+                                vext[seq(3,length(vext),6)],
+                                vext[seq(4,length(vext),6)],
+                                vext[seq(5,length(vext),6)],
+                                vext[seq(6,length(vext),6)]))
   names(ext_all) = c("ID","min","amp","alpha","beta","acro","F_imp")
   row.names(ext_all) = c(1:length(idlist))
   return(ext_all)

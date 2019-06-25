@@ -8,7 +8,7 @@ fragmentation(x, w, thresh, bout.length = 1, metrics = c("mean_bout",
   "TP", "Gini", "power", "hazard", "all"))
 }
 \arguments{
-\item{x}{\code{vector} of activity data.}
+\item{x}{\code{integer} \code{vector} of activity data.}
 
 \item{w}{\code{vector} of wear flag data with same dimension as \code{x}.}
 

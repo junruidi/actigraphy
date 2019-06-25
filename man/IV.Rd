@@ -7,9 +7,7 @@
 IV(x, level = c("minute", "hour"))
 }
 \arguments{
-\item{x}{\code{vector} vector of dimension 1440 which reprsents 1440 minute activity data}
-
-\item{level}{time resolution to calcualte IV. Can be either "minute", or "hour".}
+\item{x}{\code{vector} vector of dimension 1440 which reprsents 1440 minute activity data. Or users can bin the data into different resolutions, e.g. 10 minute, 1 hour, etc.}
 }
 \value{
 IV

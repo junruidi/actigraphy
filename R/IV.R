@@ -2,8 +2,7 @@
 #' @description This function calcualte intradaily variability, a nonparametric metric
 #' reprsenting fragmentation of circadian rhtymicity
 #'
-#' @param x  \code{vector} vector of dimension 1440 which reprsents 1440 minute activity data
-#' @param level time resolution to calcualte IV. Can be either "minute", or "hour".
+#' @param x  \code{vector} vector of dimension 1440 which reprsents 1440 minute activity data. Or users can bin the data into different resolutions, e.g. 10 minute, 1 hour, etc.
 #' @return IV
 #'
 #'
@@ -21,14 +20,8 @@ IV = function(
   x,
   level = c("minute","hour")
 ){
-  level = match.arg(level)
-  day.counts = x
-  if(level == "hour"){
-    day.counts = unname(tapply(day.counts, (seq_along(day.counts)-1) %/% 60, sum,na.rm = T))
-  }
-
-  mean.counts <- mean(day.counts)
-  numerator <- sum(diff(day.counts)^2) * length(day.counts)
-  denominator <- sum((day.counts-mean.counts)^2) * (length(day.counts) - 1)
+  mean.counts <- mean(x)
+  numerator <- sum(diff(x)^2) * length(x)
+  denominator <- sum((x-mean.counts)^2) * (length(x) - 1)
   return(numerator/denominator)
 }

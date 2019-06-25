@@ -2,7 +2,7 @@
 #' @description Fragmentation methods to study the transition between two states, e.g.
 #' sedentary v.s. active.
 #'
-#' @param x \code{vector} of activity data.
+#' @param x \code{integer} \code{vector} of activity data.
 #' @param w \code{vector} of wear flag data with same dimension as \code{x}.
 #' @param thresh threshold to binarize the data.
 #' @param bout.length minimum duration of defining an active bout; defaults to 1.
@@ -75,7 +75,7 @@ fragmentation = function(
     stop("w has non 0-1 data!")
   }
 
-  x = na.omit(x)
+  x = na.omit(as.integer(x))
   w = na.omit(w)
 
   w[w == 0] = NA

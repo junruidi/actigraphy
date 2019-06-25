@@ -7,7 +7,7 @@
 #' @param logtransform Conduct log transfomation before. Default is \code{TRUE}.
 #'
 #' @importFrom minpack.lm nls.lm nls.lm.control
-#' @importFrom stats coef
+#' @importFrom stats coef residuals
 #'
 #' @return A list with elements
 #' \item{min}{minimum}
@@ -55,8 +55,8 @@ ExtCos <- function(
                 amp = abs(cosinor.stat[2]),
                 alpha = cosinor.stat[3],
                 beta = cosinor.stat[4],
-                acro = cosinor.stat[5]),
-                F_imp = F_imp)
+                acro = cosinor.stat[5],
+                F_imp = F_imp))
 }
 
 fn.res1 <- function(par, tmp.dat) {

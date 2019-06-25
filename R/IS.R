@@ -16,28 +16,34 @@
 #'
 #'
 
-IS = function(
-  x
-){
-
-  x = convert_2_hr(x)
+IS = function(x){
   p = ncol(x)
-  hr_mean = colMeans(x)
+  xh = colMeans(x)
+
   v = c(t(x))
   n = length(v)
-  numerator = sum((hr_mean - mean(v))^2)/p
+
+  numerator = sum((xh - mean(v))^2)/p
   denominator = sum((v - mean(v))^2)/n
+
   return(numerator/denominator)
 }
 
-convert_2_hr = function(x){
-  hr = NULL
-  for(i in 1:24){
-    temp = x[,(60*(i-1)+1):(60*i)]
-    temp.i = rowSums(temp,na.rm = T)
-    hr = cbind(hr,temp.i)
-  }
-  hr = data.frame(hr)
-  names(hr) = paste0("hr",c(1:24))
-  return(hr)
-}
+
+# bin_data = function(x, window = c(10,30,60,120)){
+#   return(colSums(matrix(x, nrow = window)))
+# }
+
+
+
+# convert_2_hr = function(x){
+#   hr = NULL
+#   for(i in 1:24){
+#     temp = x[,(60*(i-1)+1):(60*i)]
+#     temp.i = rowSums(temp,na.rm = T)
+#     hr = cbind(hr,temp.i)
+#   }
+#   hr = data.frame(hr)
+#   names(hr) = paste0("hr",c(1:24))
+#   return(hr)
+# }
