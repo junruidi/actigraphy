@@ -40,7 +40,7 @@ ExtCos_long = function(
 
 
   long.count = reshape(count.data, varying = names(count.data)[3:1442],direction = "long",
-                       timevar = "MIN",idvar = c("ID","Day"),v.names = "values")
+                       timevar = "MIN",idvar = c("ID","Day"),v.names = "values",new.row.names = c(1:(1440*nrow(count.data))))
   long.count = long.count[
     with(long.count, order(ID, Day,MIN)),
     ]
